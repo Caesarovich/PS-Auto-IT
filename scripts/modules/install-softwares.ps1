@@ -1,22 +1,24 @@
-$version = "1.6.0"
+#########################
 
-$host.UI.RawUI.WindowTitle = "Installating softwares"
+# Auto-IT: Install Softwares
+# Description: Install various softwares using Chocolatey
+#
+# Author(s): Caesarovich
+# Version: 1.5.0
+# Note: Jump to line 136 to customize the softwares this script installs
 
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|---------------------|`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|  Install Softwares  |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|  Version: $version    |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|                     |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "| By: Caesarovich |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|---------------------|`r"
+##########################
+
+$host.UI.RawUI.WindowTitle = "Installing softwares..."
+
 
 $curDir = Get-Location
-
 $options = Get-Content "$curDir\options.json" | ConvertFrom-Json
 
 #
 Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "> Installing softwares..."
 
-# Fonctions 
+# Functions 
 
 function IsChocoInstalled {
   Try {
@@ -27,8 +29,7 @@ function IsChocoInstalled {
     }
     else {
       return $isChocoInstalled
-    }
-        
+    }  
   } 
   Catch {
     return $false
@@ -37,6 +38,7 @@ function IsChocoInstalled {
 
 function InstallChoco {
   $isInstalled = IsChocoInstalled
+
   if ($isInstalled -eq $false) {
     Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "Chocolatey is not installed. Installing..."
     Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -72,6 +74,8 @@ function InstallPackage {
 
 }
 
+# This allows you to set the current user's default browser automaticly
+# /!\ Makes Windows do some fuckery since recent updates
 function Set-DefaultBrowser {
   param($defaultBrowser)
 
@@ -102,6 +106,7 @@ function Set-DefaultBrowser {
   # Thanks StackOverFlow https://stackoverflow.com/questions/17536405/cant-set-chrome-as-default-browser-from-powershell/27859397
 }
 
+# Use that to remove any desktop icon some softwares might enforce to add on the desktop
 function RemoveDesktopIcon {
   param($Icon)
 
@@ -112,8 +117,9 @@ function RemoveDesktopIcon {
   }
 }
 
-# Installing chocolatey 
 
+
+# Installing chocolatey 
 
 try {
   InstallChoco
@@ -127,35 +133,43 @@ catch {
 }
 
 
+############################
 
+# Installing packets
 
-# Installation des packets
+# Adobe Acrobat Reader #
 Write-Host -ForegroundColor Green -Object "> Installing Acrobat Reader..."
 InstallPackage -PackageName adobereader
 
+# VLC Media Player #
 Write-Host -ForegroundColor Green -Object "> Installing VLC..."
 InstallPackage -PackageName vlc
-
-# VLC automaticly create a desktop shortcut, this removes it
 RemoveDesktopIcon -Icon "VLC media player.lnk"
 
+# WinRAR #
 Write-Host -ForegroundColor Green -Object "> Installing WinRar..."
 InstallPackage -PackageName winrar
 
-Write-Host -ForegroundColor Green -Object "> Installing Glary's Utilities Free..."
-InstallPackage -PackageName glaryutilities-free
+# Glary's Utilities Free #
+# Write-Host -ForegroundColor Green -Object "> Installing Glary's Utilities Free..."
+# InstallPackage -PackageName glaryutilities-free
 
-Write-Host -ForegroundColor Green -Object "> Installing Driver Booster..."
-InstallPackage -PackageName driverbooster
+# Driver Booster #
+# Write-Host -ForegroundColor Green -Object "> Installing Driver Booster..."
+# InstallPackage -PackageName driverbooster
+# RemoveDesktopIcon -Icon "Driver Booster 8.lnk"
 
-# Driver Booster 8 automaticly create a desktop shortcut, this removes it
-RemoveDesktopIcon -Icon "Driver Booster 8.lnk"
+
+
+# Browser
+# There I use the user options to install a different browser depending on the need
+# You can just remove this part and keep only the part you're interested in.
 
 if ($options["WichBrowser"] -eq "Yes") {
   Write-Host -ForegroundColor Green -Object "> Installing Google Chrome..."
   InstallPackage -PackageName googlechrome
 
-  Write-Host -ForegroundColor Green -Object "> Definir Google Chrome comme naviguateur par defaut."
+  Write-Host -ForegroundColor Green -Object "> Define Google Chrome as default browser."
   Set-DefaultBrowser -defaultBrowser chrome
 
   if ($options["ShouldInstallAB"] -eq "Yes") {
@@ -168,7 +182,7 @@ elseif ($options["WichBrowser"] -eq "No") {
   Write-Host -ForegroundColor Green -Object "> Installing Firefox..."
   InstallPackage -PackageName firefox
 
-  Write-Host -ForegroundColor Green -Object "> Definir Firefox comme naviguateur par defaut."
+  Write-Host -ForegroundColor Green -Object "> Define Firefox as default browser."
   Set-DefaultBrowser -defaultBrowser firefox
 
   if ($options["ShouldInstallAB"] -eq "Yes") {
@@ -178,12 +192,14 @@ elseif ($options["WichBrowser"] -eq "No") {
 }
 
 
+# Libre Office #
 if ($options["ShouldInstallLO"] -eq "Yes") {
   Write-Host -ForegroundColor Green -Object "> Installing Libre Office Fresh..."
   InstallPackage -PackageName libreoffice-fresh
 }
 
-Write-Host -ForegroundColor Green -Object "> Software installs finished."
 
-$curDir = Get-Location
+############################
+
+Write-Host -ForegroundColor Green -Object "> Software installs finished."
 Add-Content -Path "$curDir\log.txt" -Value "[Ok] Installing softwares"
