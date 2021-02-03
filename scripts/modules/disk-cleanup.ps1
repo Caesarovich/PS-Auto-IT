@@ -1,13 +1,12 @@
-$version = "2.0.0"
+#########################
 
-$host.UI.RawUI.WindowTitle = "DIsk cleanup"
+# PS-Auto-IT: Disk cleanup
+# Description: Runs a standard disk cleanup
+#
+# Author(s): Caesarovich
+# Version: 2.0.0
 
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|---------------------|`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|    Disk cleanup     |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|   Version: $version    |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|                     |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "| By: Caesarovich     |`r"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor Yellow -Object "|---------------------|`r"
+##########################
 
 
 
