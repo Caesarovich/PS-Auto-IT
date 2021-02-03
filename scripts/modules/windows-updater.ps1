@@ -1,14 +1,13 @@
-$version = "2.1.0"
+#########################
 
+# PS-Auto-IT: Windows Updates
+# Description: Updates Windows 10.
+#
+# Author(s): Caesarovich
+# Version: 2.1.0
+
+##########################
 $host.UI.RawUI.WindowTitle = "Windows 10 Updates"
-
-Write-Host -BackgroundColor DarkGreen -ForegroundColor White -Object "/ ----------------------------------- /"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor White -Object "/        WindowsUpdater v$version        /"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor White -Object "/                                     /"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor White -Object "/    By  Caesarovich                  /"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor White -Object "/                                     /"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor White -Object "/             25/11/2020              /"
-Write-Host -BackgroundColor DarkGreen -ForegroundColor White -Object "/ ----------------------------------- /`r"
 
 
 # Désactiver windows Update qui ralentit le démarrage
