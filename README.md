@@ -1,8 +1,8 @@
-# Auto-IT - A modulable Bash/Powershell script for automating IT workers' job
+# PS-Auto-IT - A modulable Bash/Powershell script for automating IT workers' job
 
 ## Introduction
 
-Auto-IT is a **modulable** Bash/Powershell script for automating IT workers' job. This script will do *most of your job* as an IT worker when you work in computer repairing, refurbishment, selling, etc... In a single click it will run: **Windows Updates, Windows Debloater, Disk Cleaner, installing common softwares, change the default wallpaper by your companie's wallpaper and more !** As it is made to be modulable **you can easily add your own modules**, customize or remove the existing ones.
+PS-Auto-IT is a **modulable** Bash/Powershell script for automating IT workers' job. This script will do *most of your job* as an IT worker when you work in computer repairing, refurbishment, selling, etc... In a single click it will run: **Windows Updates, Windows Debloater, Disk Cleaner, installing common softwares, change the default wallpaper by your companie's wallpaper and more !** As it is made to be modulable **you can easily add your own modules**, customize or remove the existing ones.
 
 
 ## How to use
@@ -38,7 +38,7 @@ In order to create your custom module you should at first insert this small piec
 ```ps1
 #########################
 
-# Auto-IT: Your Module Name
+# PS-Auto-IT: Your Module Name
 # Description: A description of what it does.
 #
 # Author(s): Your name
