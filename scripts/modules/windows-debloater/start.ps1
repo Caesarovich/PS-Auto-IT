@@ -1,6 +1,6 @@
 #########################
 
-# Auto-IT: Windows Debloater
+# PS-Auto-IT: Windows Debloater
 # Description: Debloat your system, removes tracking, unused services running in background...
 # You might want to comment out some of the following scripts depending on your needs.
 #
