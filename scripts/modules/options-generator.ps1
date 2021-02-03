@@ -1,6 +1,6 @@
 #########################
 
-# Auto-IT: User options generator
+# PS-Auto-IT: User options generator
 # Description: This script prompts forms to the user and save the result in a .json file
 #  Use this to add per-machine options. Like for instance what browser should be installed on this particular computer
 #  Adding an option and retrieving it is pretty easy but you need to take a look at the below code.
