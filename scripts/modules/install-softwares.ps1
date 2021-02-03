@@ -1,6 +1,6 @@
 #########################
 
-# Auto-IT: Install Softwares
+# PS-Auto-IT: Install Softwares
 # Description: Install various softwares using Chocolatey
 #
 # Author(s): Caesarovich
