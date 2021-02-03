@@ -1,6 +1,6 @@
 #########################
 
-# Auto-IT: Install script
+# PS-Auto-IT: Install script
 # Description: A script to copy the files onto the current user's desktop directory. 
 #  That is useful if you have this script on a USB stick and want to run it on multiple computers.
 #
