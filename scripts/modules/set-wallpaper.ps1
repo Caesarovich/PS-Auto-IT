@@ -1,6 +1,6 @@
 #########################
 
-# Auto-IT: Set Wallpaper
+# PS-Auto-IT: Set Wallpaper
 # Description: Defines a custome image as the desktop wallpaper
 #   This is useful if your company replaces the default Windows' wallpaper by a branding one
 #
