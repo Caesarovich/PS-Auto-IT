@@ -1,6 +1,6 @@
 #########################
 
-# Auto-IT: Start Script
+# PS-Auto-IT: Start Script
 # Description: This script is the starting point that runs all the other module scripts.
 #  You might want to disable/enable some of the below modules depending on your needs
 #
