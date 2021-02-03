@@ -7,12 +7,12 @@ Color 3F
 :: This version applies to this script only
 set version=1.0.0
 
-Title Script de demarrage v%version%
+Title Starting script v%version%
 
 set curDir=%~dp0
 echo Current Dir: %curDir%
 
-echo # Creation du fichier de log %curDir%log.txt
+echo # Creating log file %curDir%log.txt
 if not exist "%curDir%\log.txt" echo.> "%curDir%\log.txt"
 
 @REM ADMIN PART
