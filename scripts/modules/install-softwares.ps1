@@ -139,7 +139,7 @@ catch {
 
 # Adobe Acrobat Reader #
 Write-Host -ForegroundColor Green -Object "> Installing Acrobat Reader..."
-InstallPackage -PackageName adobereader
+# InstallPackage -PackageName adobereader
 
 # VLC Media Player #
 Write-Host -ForegroundColor Green -Object "> Installing VLC..."
@@ -165,38 +165,38 @@ InstallPackage -PackageName winrar
 # There I use the user options to install a different browser depending on the need
 # You can just remove this part and keep only the part you're interested in.
 
-if ($options["WichBrowser"] -eq "Yes") {
-  Write-Host -ForegroundColor Green -Object "> Installing Google Chrome..."
-  InstallPackage -PackageName googlechrome
+# if ($options["WichBrowser"] -eq "Yes") {
+#   Write-Host -ForegroundColor Green -Object "> Installing Google Chrome..."
+#   InstallPackage -PackageName googlechrome
 
-  Write-Host -ForegroundColor Green -Object "> Define Google Chrome as default browser."
-  Set-DefaultBrowser -defaultBrowser chrome
+#   Write-Host -ForegroundColor Green -Object "> Define Google Chrome as default browser."
+#   Set-DefaultBrowser -defaultBrowser chrome
 
-  if ($options["ShouldInstallAB"] -eq "Yes") {
-    Write-Host -ForegroundColor Green -Object "> Installing Adblock Plus (Chrome)..."
-    InstallPackage -PackageName adblockpluschrome
+#   if ($options["ShouldInstallAB"] -eq "Yes") {
+#     Write-Host -ForegroundColor Green -Object "> Installing Adblock Plus (Chrome)..."
+#     InstallPackage -PackageName adblockpluschrome
     
-  }
-}
-elseif ($options["WichBrowser"] -eq "No") {
-  Write-Host -ForegroundColor Green -Object "> Installing Firefox..."
-  InstallPackage -PackageName firefox
+#   }
+# }
+# elseif ($options["WichBrowser"] -eq "No") {
+#   Write-Host -ForegroundColor Green -Object "> Installing Firefox..."
+#   InstallPackage -PackageName firefox
 
-  Write-Host -ForegroundColor Green -Object "> Define Firefox as default browser."
-  Set-DefaultBrowser -defaultBrowser firefox
+#   Write-Host -ForegroundColor Green -Object "> Define Firefox as default browser."
+#   Set-DefaultBrowser -defaultBrowser firefox
 
-  if ($options["ShouldInstallAB"] -eq "Yes") {
-    Write-Host -ForegroundColor Green -Object "> Installing Adblock Plus (Firefox)..."
-    InstallPackage -PackageName adblockplusfirefox
-  }
-}
+#   if ($options["ShouldInstallAB"] -eq "Yes") {
+#     Write-Host -ForegroundColor Green -Object "> Installing Adblock Plus (Firefox)..."
+#     InstallPackage -PackageName adblockplusfirefox
+#   }
+# }
 
 
-# Libre Office #
-if ($options["ShouldInstallLO"] -eq "Yes") {
-  Write-Host -ForegroundColor Green -Object "> Installing Libre Office Fresh..."
-  InstallPackage -PackageName libreoffice-fresh
-}
+# # Libre Office #
+# if ($options["ShouldInstallLO"] -eq "Yes") {
+#   Write-Host -ForegroundColor Green -Object "> Installing Libre Office Fresh..."
+#   InstallPackage -PackageName libreoffice-fresh
+# }
 
 
 ############################
