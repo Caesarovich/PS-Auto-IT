@@ -18,7 +18,7 @@ Add-Content -Path "$curDir\log.txt" -Value "# Script Start: $date #"
 Write-Host -ForegroundColor Green -Object "> Starting of the scripts`r`n"
 
 #Add-Content -Path "$curDir\log.txt" -Value '.\scripts\options-generator.ps1'
-.\scripts\modules\options-generator.ps1
+#.\scripts\modules\options-generator.ps1
 
 # Defines .\wp.png as wallpaper
 # This is useful if your company replaces the default Windows' wallpaper by a branding one
